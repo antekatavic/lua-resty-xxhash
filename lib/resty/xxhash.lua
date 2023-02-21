@@ -71,6 +71,14 @@ function xxhash.hash64(input, seed)
     return tonumber(lib.XXH64(input, #input, seed or 0))
 end
 
+function xxhash.hash32hex(input, seed)
+    return string.format("%x", xxhash.hash32(input, seed))
+end
+
+function xxhash.hash64hex(input, seed)
+    return string.format("%x", xxhash.hash64(input, seed))
+end
+
 local mt = {}
 
 function mt:__call(input, seed, bits)
